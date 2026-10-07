@@ -1,0 +1,39 @@
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#e8edf0; --body:#f7f9fa; --screen:#1d2b33; --screen-text:#eaf3f5; --screen-dim:#8fa5ae;
+  --key:#ffffff; --key-text:#1d2b33; --key-edge:#c9d3d8;
+  --op:#0f6e75; --op-text:#ffffff; --op-edge:#0a4f54;
+  --clear:#d9e2e6; --focus:#e08a00;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1519; --body:#18242b; --screen:#0b1115; --screen-text:#eaf3f5; --screen-dim:#7d939c;
+    --key:#24343c; --key-text:#eaf3f5; --key-edge:#0b1115;
+    --op:#2aa0a8; --op-text:#062326; --op-edge:#17696f;
+    --clear:#31444d; --focus:#f2a93b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1519; --body:#18242b; --screen:#0b1115; --screen-text:#eaf3f5; --screen-dim:#7d939c;
+  --key:#24343c; --key-text:#eaf3f5; --key-edge:#0b1115;
+  --op:#2aa0a8; --op-text:#062326; --op-edge:#17696f;
+  --clear:#31444d; --focus:#f2a93b;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);display:grid;place-items:center;font-family:"DM Mono",ui-monospace,Menlo,Consolas,monospace;color:var(--key-text)}
+.calc{width:min(340px,92vw);background:var(--body);border-radius:22px;padding:16px;box-shadow:0 18px 40px rgba(15,40,50,.18)}
+.screen{background:var(--screen);border-radius:14px;padding:14px 16px;min-height:104px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;overflow:hidden}
+.hist{color:var(--screen-dim);font-size:14px;min-height:20px;white-space:nowrap}
+.value{color:var(--screen-text);font-size:44px;font-weight:500;line-height:1.15;white-space:nowrap}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+button{font:inherit;font-size:22px;height:64px;border:0;border-radius:12px;background:var(--key);color:var(--key-text);box-shadow:0 3px 0 var(--key-edge);cursor:pointer;touch-action:manipulation}
+button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--key-edge)}
+button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button.op{background:var(--op);color:var(--op-text);box-shadow:0 3px 0 var(--op-edge)}
+button.op.active{outline:3px solid var(--screen-text);outline-offset:-5px}
+button.clear{background:var(--clear)}
+button.wide{grid-column:span 2}
+@media (prefers-reduced-motion: reduce){button:active{transform:none}}

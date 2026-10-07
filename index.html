@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculator</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="calc" aria-label="Calculator">
+  <div class="screen" aria-live="polite">
+    <div class="hist" id="hist"></div>
+    <div class="value" id="value">0</div>
+  </div>
+  <div class="keys">
+    <button class="clear" data-k="C">C</button>
+    <button class="clear" data-k="Backspace" aria-label="Delete last digit">&#9003;</button>
+    <button class="op" data-k="/" aria-label="Divide">&divide;</button>
+    <button class="op" data-k="*" aria-label="Multiply">&times;</button>
+    <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+    <button class="op" data-k="-" aria-label="Subtract">&minus;</button>
+    <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+    <button class="op" data-k="+" aria-label="Add">+</button>
+    <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+    <button class="op" data-k="=" aria-label="Equals" style="grid-row:span 2;height:auto">=</button>
+    <button class="wide" data-k="0">0</button><button data-k=".">.</button>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
